@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<head th:replace="/layout :: header"></head>
+<h3>Add new player</h3>
+<a th:href="@{/}">Back to players</a>
+<form th:action="@{/save}" th:method="post" th:object="${player}">
+    <table border="1">
+        <tr>
+            <th>Id:</th>
+            <th><input type="number" th:field="*{id}"></th>
+        </tr>
+
+        <tr>
+            <th>Name:</th>
+            <th><input type="text" th:field="*{name}"></th>
+        </tr>
+
+        <tr>
+            <th>Birthday:</th>
+            <th><input type="date" th:field="*{dayOfBirth}"></th>
+        </tr>
+
+        <tr>
+            <th>Position:</th>
+            <th><input type="text" th:field="*{position}"></th>
+        </tr>
+
+        <tr>
+            <th>Experience:</th>
+            <th><input type="text" th:field="*{experience}"></th>
+        </tr>
+    </table>
+
+    <button type="submit">Save</button>
+</form>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
