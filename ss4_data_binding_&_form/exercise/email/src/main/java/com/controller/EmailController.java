@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class SavingController {
+public class EmailController {
 
     @Autowired
     private IConfigService configService;
@@ -26,7 +26,7 @@ public class SavingController {
         model.addAttribute("listSize", configService.selectSize());
         return "/editForm";
     }
-    @PostMapping("/edit/save")
+    @PostMapping("/save")
     public String submit(@ModelAttribute Config config,Model model){
         model.addAttribute("mess",configService.confirm(config));
         model.addAttribute("configList",configService.selectAll());
