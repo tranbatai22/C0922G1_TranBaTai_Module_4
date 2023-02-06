@@ -1,7 +1,7 @@
-package com.ss03.repository.impl;
+package com.example.repository.impl;
 
-import com.ss03.model.Product;
-import com.ss03.repository.IProductRepository;
+import com.example.model.Product;
+import com.example.repository.IProductRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;

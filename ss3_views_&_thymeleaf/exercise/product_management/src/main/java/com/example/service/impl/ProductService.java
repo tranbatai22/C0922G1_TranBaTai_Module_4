@@ -1,8 +1,8 @@
-package com.ss03.service.impl;
+package com.example.service.impl;
 
-import com.ss03.model.Product;
-import com.ss03.repository.IProductRepository;
-import com.ss03.service.IProductService;
+import com.example.model.Product;
+import com.example.repository.IProductRepository;
+import com.example.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

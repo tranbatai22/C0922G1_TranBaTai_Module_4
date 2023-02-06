@@ -1,6 +1,6 @@
-package com.ss03.repository;
+package com.example.repository;
 
-import com.ss03.model.Product;
+import com.example.model.Product;
 
 import java.util.List;
 

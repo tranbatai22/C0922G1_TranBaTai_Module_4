@@ -1,7 +1,7 @@
-package com.ss03.controller;
+package com.example.controller;
 
-import com.ss03.model.Product;
-import com.ss03.service.IProductService;
+import com.example.model.Product;
+import com.example.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

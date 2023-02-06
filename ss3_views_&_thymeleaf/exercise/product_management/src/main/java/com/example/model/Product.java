@@ -1,4 +1,4 @@
-package com.ss03.model;
+package com.example.model;
 
 public class Product {
     private int id;

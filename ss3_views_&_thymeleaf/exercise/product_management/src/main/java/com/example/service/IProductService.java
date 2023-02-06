@@ -1,6 +1,6 @@
-package com.ss03.service;
+package com.example.service;
 
-import com.ss03.model.Product;
+import com.example.model.Product;
 
 import java.util.List;
 
