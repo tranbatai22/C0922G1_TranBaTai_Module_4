@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"></head>
+</head>
+<body>
+<div th:replace="~{layout::header}"></div>
+<div>
+    <button type="button" class="btn btn-warning"><a th:href="@{/product/create}">Add product</a></button>
+    <table class="table table-success">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Maker</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Description</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="product : ${productList}">
+            <td th:text="${product.getId()}"></td>
+            <td th:text="${product.getName()}"></td>
+            <td th:text="${product.getMaker()}"></td>
+            <td th:text="${product.getQuantity()}"></td>
+            <td th:text="${product.getCost()}"></td>
+            <td th:text="${product.getDescription()}"></td>
+            <td><button type="button" class="btn btn-danger"><a style="text-decoration: none" th:href="@{/product/update(id=${product.getId()})}">Update</a></button></td>
+            <td><button type="button" class="btn btn-success"><a style="text-decoration: none" th:href="@{/product/delete(id=${product.getId()})}">Delete</a></button></td>
+        </tr>
+    </table>
+</div>
+<div th:replace="~{layout::footer}"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
