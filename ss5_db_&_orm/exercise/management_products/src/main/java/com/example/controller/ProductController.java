@@ -48,4 +48,16 @@ public class ProductController {
         return "detail";
     }
 
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable int id, Model model) {
+        model.addAttribute("product", productService.findById(id));
+        return "/edit";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute Product product, RedirectAttributes redirectAttributes) {
+        productService.update(product);
+        redirectAttributes.addFlashAttribute("mess", "Update product successful!");
+        return "redirect:/";
+    }
 }

@@ -7,8 +7,9 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<a th:href="@{/showFormCreate}">Thêm mới</a>
-
+<center>
+    <h2><a th:href="@{/showFormCreate}">Thêm mới</a></h2>
+</center>
 <table class="table table-row-cell">
     <tr>
         <td>Id</td>
@@ -25,7 +26,7 @@
         <td th:text="${product.getPrice()}"></td>
         <td th:text="${product.getProducer()}"></td>
         <td><a th:href="@{/findById/{id}(id = ${product.id})}">Detail</a></td>
-        <td>Edit</td>
+        <td><a th:href="@{/edit/{id}(id = ${product.id})}">Update</a></td>
         <td><a th:href="@{/delete/{id}(id = ${product.id})}">Delete</a></td>
     </tr>
 </table>
