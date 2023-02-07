@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<h3>Detail Blog</h3>
+<a th:href="@{/}">Danh sách blog</a>
+<table th:object="${blog}" border="1">
+    <tr>
+        <td>Id:</td>
+        <td th:text="${blog.id}"></td>
+    </tr>
+
+    <tr>
+        <td>Title:</td>
+        <td th:text="${blog.title}"></td>
+    </tr>
+
+    <tr>
+        <td>Author:</td>
+        <td th:text="${blog.author}"></td>
+    </tr>
+
+    <tr>
+        <td>Date Created:</td>
+        <td th:text="${blog.dateCreated}"></td>
+    </tr>
+</table>
+</center>
+</body>
+</html>

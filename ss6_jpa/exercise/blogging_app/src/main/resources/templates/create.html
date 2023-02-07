@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>Create Blog</h1>
+    <form th:action="@{/create}" method="post" th:object="${blog}">
+        <table border="1">
+            <tr>
+                <td><p>Title :</p></td>
+                <td><input type="text" placeholder="nhập tiêu đề" th:field="*{title}"></td>
+            </tr>
+            <tr>
+                <td><p>Author :</p></td>
+                <td>  <input type="text" placeholder="nhập tác giả" th:field="*{author}"></td>
+            </tr>
+            <tr>
+                <td><p>Date Created :</p></td>
+                <td> <input type="date" placeholder="ngày viết bài" th:field="*{dateCreated}"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+</html>
