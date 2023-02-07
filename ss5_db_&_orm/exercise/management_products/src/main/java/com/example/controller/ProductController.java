@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class ProductController {
     @Autowired
-    IProductService productService;
+    private IProductService productService;
 
     @GetMapping("/")
     public String showList(Model model) {
@@ -29,9 +29,9 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String create(Product product, RedirectAttributes redirectAttributes){
+    public String create(Product product, RedirectAttributes redirectAttributes) {
         productService.save(product);
-        redirectAttributes.addFlashAttribute("mess","Them moi thanh cong");
+        redirectAttributes.addFlashAttribute("mess", "Them moi thanh cong");
         return "redirect:/";
     }
 
@@ -43,7 +43,7 @@ public class ProductController {
     }
 
     @GetMapping("/findById/{id}")
-    public String findById(Model model, @PathVariable int id){
+    public String findById(Model model, @PathVariable int id) {
         model.addAttribute("product", productService.findById(id));
         return "detail";
     }

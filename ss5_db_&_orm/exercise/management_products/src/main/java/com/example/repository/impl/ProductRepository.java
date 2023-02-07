@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class ProductRepository implements IProductRepository {
     @PersistenceContext
-    EntityManager entityManager;
+     private EntityManager entityManager;
 
     @Override
     public List<Product> findAll() {
