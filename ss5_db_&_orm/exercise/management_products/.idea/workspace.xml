@@ -5,14 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1992e4c5-8570-4907-810a-79055d774d55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/java/com/example/blogging_app/controller/BlogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/java/com/example/blogging_app/model/Blog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/java/com/example/blogging_app/repository/IBlogRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/java/com/example/blogging_app/service/BlogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/java/com/example/blogging_app/service/IBlogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/resources/templates/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/resources/templates/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app/src/main/resources/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -27,7 +19,6 @@
       <change beforePath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/build/classes/java/main/com/ss03/service/IProductService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/build/classes/java/main/com/ss03/service/impl/ProductService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_views_&amp;_thymeleaf/exercise/product_management/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +82,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ss6_jpa/exercise/blogging_app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -206,6 +197,7 @@
       <workItem from="1675740015851" duration="4094000" />
       <workItem from="1675751089032" duration="2630000" />
       <workItem from="1675773418961" duration="4033000" />
+      <workItem from="1675777862490" duration="1394000" />
     </task>
     <servers />
   </component>
