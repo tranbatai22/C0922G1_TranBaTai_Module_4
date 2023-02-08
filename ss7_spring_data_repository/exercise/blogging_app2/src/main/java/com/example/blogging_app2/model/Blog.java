@@ -1,6 +1,4 @@
-package com.example.blogging_app.model;
-
-import org.springframework.web.bind.annotation.PathVariable;
+package com.example.blogging_app2.model;
 
 import javax.persistence.*;
 
@@ -12,6 +10,18 @@ public class Blog {
     private String title;
     private String author;
     private String dateCreated;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "categoryId")
+    private Category category;
+
+    public Blog(int id, String title, String author, String dateCreated, Category category) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.dateCreated = dateCreated;
+        this.category = category;
+    }
 
     public Blog() {
     }
@@ -53,5 +63,14 @@ public class Blog {
 
     public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

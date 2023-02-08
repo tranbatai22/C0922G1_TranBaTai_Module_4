@@ -1,18 +1,14 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit</title>
+    <title>Title</title>
 </head>
 <body>
 <center>
-<a th:href="@{/}">Danh sách blog</a>
-    <form th:action="@{/create}" method="post" th:object="${blog}">
+    <h1>Create Blog</h1>
+    <form th:action="@{/blog/create}" method="post" th:object="${blog}">
         <table border="1">
-            <tr>
-                <td><input type="hidden" th:field="*{id}"></td>
-            </tr>
             <tr>
                 <td><p>Title :</p></td>
                 <td><input type="text" placeholder="nhập tiêu đề" th:field="*{title}"></td>
