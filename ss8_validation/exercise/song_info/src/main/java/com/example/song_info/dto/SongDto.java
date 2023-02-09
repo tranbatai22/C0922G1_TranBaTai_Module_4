@@ -1,9 +1,29 @@
 package com.example.song_info.dto;
 
-public class SongDto {
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+public class SongDto{
     private int id;
+
+    @NotBlank(message = "không được để trống")
+    @Size(min = 1, max = 800, message = "Không quá 800 ký tự")
+    @Pattern(regexp = "^[a-zA-Z0-9]*", message = "Không được chứa ký tự đặc biệt")
     private String name;
+
+    @NotBlank(message = "không được để trống")
+    @Size(min = 1, max = 300, message = "Không quá 300 ký tự")
+    @Pattern(regexp = "^[a-zA-Z0-9]*", message = "Không được chứa ký tự đặc biệt")
     private String artist;
+
+    @NotBlank(message = "không được để trống")
+    @Size(min = 1, max = 1000, message = "Không quá 1000 ký tự")
+    @Pattern(regexp = "^[a-zA-Z0-9,]+", message = "Không được chứa ký tự đặc biệt trừ dấu phẩy")
     private String category;
 
     public SongDto() {
@@ -47,4 +67,5 @@ public class SongDto {
     public void setCategory(String category) {
         this.category = category;
     }
+
 }

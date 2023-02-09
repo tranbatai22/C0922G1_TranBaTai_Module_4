@@ -8,20 +8,22 @@
           crossorigin="anonymous">
 </head>
 <body>
-<!--<h2><a th:href="@{/user/create}">Thêm mới</a></h2>-->
-<!--<h3><p th:text="${mess}"></p></h3>-->
+<h2><a th:href="@{/song/create}">Thêm mới</a></h2>
+<h3><p th:text="${mess}"></p></h3>
 <table class="table table-dark">
     <tr>
         <td>Id</td>
         <td>Name</td>
         <td>Artist</td>
         <td>Category</td>
+        <td>Update</td>
     </tr>
-    <tr th:each="user : ${songList}">
-        <td th:text="${user.getId()}"></td>
-        <td th:text="${user.getName()}"></td>
-        <td th:text="${user.getArtist()}"></td>
-        <td th:text="${user.getCategory()}"></td>
+    <tr th:each="song : ${songList}">
+        <td th:text="${song.getId()}"></td>
+        <td th:text="${song.getName()}"></td>
+        <td th:text="${song.getArtist()}"></td>
+        <td th:text="${song.getCategory()}"></td>
+        <td><a th:href="@{/song/update/{id}(id=${song.id})}">Update</a></td>
     </tr>
 </table>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

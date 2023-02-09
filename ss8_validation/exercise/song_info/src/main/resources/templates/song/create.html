@@ -7,22 +7,22 @@
 <body>
 <center>
     <h1>Create Song</h1>
-    <form th:action="@{/create}" method="post" th:object="${song}">
+    <form th:action="@{/song/create}" method="post" th:object="${songDto}">
         <table border="1">
             <tr>
                 <td><p>Name :</p></td>
                 <td><input type="text" placeholder="Tên bài hát" th:field="*{name}"></td>
-<!--                <td><p th:if="${#fields.hasErrors('firstNameLastName')}" th:errors="*{firstNameLastName}"></p></td>-->
+                <td><p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p></td>
             </tr>
             <tr>
                 <td><p>Artist :</p></td>
-                <td>  <input type="text" placeholder="Nghệ sĩ thể hiện" th:field="*{phoneNumber}"></td>
-<!--                <td><p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p></td>-->
+                <td>  <input type="text" placeholder="Nghệ sĩ thể hiện" th:field="*{artist}"></td>
+                <td><p th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}"></p></td>
             </tr>
             <tr>
                 <td><p>Category:</p></td>
                 <td> <input type="text" placeholder="Thể loại nhạc" th:field="*{category}"></td>
-<!--                <td><p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p></td>-->
+                <td><p th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></p></td>
             </tr>
             <tr>
                 <td><button type="submit">Save</button></td>
