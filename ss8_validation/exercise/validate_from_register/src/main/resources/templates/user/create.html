@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>Create User</h1>
+    <form th:action="@{/user/create}" method="post" th:object="${userDto}">
+        <table border="1">
+            <tr>
+                <td><p>First Name Last Name :</p></td>
+                <td><input type="text" placeholder="nhập họ và tên" th:field="*{firstNameLastName}"></td>
+                <td><p th:if="${#fields.hasErrors('firstNameLastName')}" th:errors="*{firstNameLastName}"></p></td>
+            </tr>
+            <tr>
+                <td><p>PhoneNumber :</p></td>
+                <td>  <input type="text" placeholder="nhập số điện thoại" th:field="*{phoneNumber}"></td>
+                <td><p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p></td>
+            </tr>
+            <tr>
+                <td><p>Age:</p></td>
+                <td> <input type="text" placeholder="nhập tuổi" th:field="*{age}"></td>
+                <td><p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p></td>
+            </tr>
+            <tr>
+                <td><p>Email:</p></td>
+                <td> <input type="text" placeholder="nhập email" th:field="*{email}"></td>
+                <td><p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+</html>
