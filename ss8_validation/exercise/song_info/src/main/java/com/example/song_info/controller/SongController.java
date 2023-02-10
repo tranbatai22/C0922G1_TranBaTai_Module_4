@@ -52,17 +52,17 @@ public class SongController {
         return "/song/update";
     }
 
-    @PostMapping("/update")
-    public String update(@Validated @ModelAttribute SongDto songDto, BindingResult bindingResult, Model model,
-                         RedirectAttributes redirectAttributes){
-        if (bindingResult.hasErrors()){
-            model.addAttribute("songDto", songDto);
-            return "/song/update";
-        }
-        Song song = new Song();
-        BeanUtils.copyProperties(songDto, song);
-        this.songService.save(song);
-        redirectAttributes.addFlashAttribute("mess", "Chỉnh sửa thành công");
-        return "redirect:/song";
-    }
+//    @PostMapping("/update")
+//    public String update(@Validated @ModelAttribute SongDto songDto, BindingResult bindingResult, Model model,
+//                         RedirectAttributes redirectAttributes){
+//        if (bindingResult.hasErrors()){
+//            model.addAttribute("songDto", songDto);
+//            return "/song/update";
+//        }
+//        Song song = new Song();
+//        BeanUtils.copyProperties(songDto, song);
+//        this.songService.save(song);
+//        redirectAttributes.addFlashAttribute("mess", "Chỉnh sửa thành công");
+//        return "redirect:/song";
+//    }
 }
