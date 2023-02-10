@@ -7,7 +7,7 @@
 <body>
 <center>
     <h1>Update Song</h1>
-    <form th:action="@{/song/create}" method="post" th:object="${songDto}">
+    <form th:action="@{/update}" method="post" th:object="${songDto}">
         <table border="1">
             <tr>
                 <td><input type="hidden" th:field="*{id}"></td>
