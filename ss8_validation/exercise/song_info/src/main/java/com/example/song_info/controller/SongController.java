@@ -26,33 +26,13 @@ public class SongController {
         return "song/list";
     }
 
-    //    @GetMapping("/song/create")
-//    public String showFormCreate(Model model) {
-//        model.addAttribute("songDto", new SongDto());
-//        return "song/create";
-//    }
-//
-//    @PostMapping("/song/create")
-//    public String create(@Validated @ModelAttribute SongDto songDto, BindingResult bindingResult,
-//                         Model model, RedirectAttributes redirectAttributes) {
-//        new SongDto().validate(songDto, bindingResult);
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("songDto", songDto);
-//            return "/song/create";
-//        }
-//        Song song = new Song();
-//        BeanUtils.copyProperties(songDto, song);
-//        songService.save(song);
-//        redirectAttributes.addFlashAttribute("mess", "Thêm mới thành công");
-//        return "redirect:/song";
-//    }
     @GetMapping("/song/create")
     public String create(Model model) {
         model.addAttribute("songDto", new SongDto());
         return "/song/create";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/song/create")
     public String create(@Validated @ModelAttribute SongDto songDto, BindingResult bindingResult, Model model,
                       RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
@@ -68,9 +48,7 @@ public class SongController {
 
     @GetMapping("/update/{id}")
     public String edit(@PathVariable int id, Model model){
-        SongDto songDto = new SongDto();
-        BeanUtils.copyProperties(this.songService.findById(id), songDto);
-        model.addAttribute("songDto", songDto);
+        model.addAttribute("songDto", songService.findById(id));
         return "/song/update";
     }
 

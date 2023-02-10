@@ -19,9 +19,6 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
 
-    @Autowired
-    private ICategoryService categoryService;
-
     @GetMapping("/blog")
     public String findAll(Model model, @RequestParam(required = false, defaultValue = "") String searchTitle,
                           @PageableDefault(size = 5, page = 0 , sort = "title", direction = Sort.Direction.ASC)Pageable pageable) {

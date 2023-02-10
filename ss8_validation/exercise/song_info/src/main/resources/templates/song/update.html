@@ -10,6 +10,9 @@
     <form th:action="@{/update}" method="post" th:object="${songDto}">
         <table border="1">
             <tr>
+                <td><input type="hidden" th:field="*{id}"></td>
+            </tr>
+            <tr>
                 <td><p>Name :</p></td>
                 <td><input type="text" placeholder="Tên bài hát" th:field="*{name}"></td>
                 <td><p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p></td>
