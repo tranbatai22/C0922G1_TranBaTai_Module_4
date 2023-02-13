@@ -20,6 +20,7 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerType;
+
     @OneToMany(mappedBy = "customer")
     private Set<Contract> contractSet;
 
