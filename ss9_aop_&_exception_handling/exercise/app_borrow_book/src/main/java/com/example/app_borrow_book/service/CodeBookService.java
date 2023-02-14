@@ -15,7 +15,7 @@ public class CodeBookService implements ICodeBookService {
     public CodeBook findByCodeBook(int codeBook) {
         return codeBookRepository.findByCodeBook(codeBook);
     }
-
+    @Override
     public void removeCodeBook(int codeBook) {
         codeBookRepository.delete(findByCodeBook(codeBook));
     }

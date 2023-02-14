@@ -18,14 +18,17 @@ public class BookService implements IBookService {
     @Autowired
     private ICodeBookRepository codeBookRepository;
 
+    @Override
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
 
+    @Override
     public Book findById(int id) {
         return bookRepository.getReferenceById(id);
     }
 
+    @Override
     public int borrowBook(int id) {
         findById(id).setQuantity(findById(id).getQuantity() - 1);
         int code = (int) Math.floor(((Math.random() * 89999) + 10000));
@@ -37,10 +40,12 @@ public class BookService implements IBookService {
         return code;
     }
 
+    @Override
     public Book payBook(int codeBook) {
         return bookRepository.payBook(codeBook);
     }
 
+    @Override
     public void payBookConfirm(int id) {
         findById(id).setQuantity(findById(id).getQuantity() + 1);
 

@@ -3,7 +3,6 @@ package com.example.app_borrow_book.service;
 import com.example.app_borrow_book.model.Book;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IBookService {
     List<Book> findAll();

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7328d00b-1a4d-4b90-8d08-e8f03c4c2964" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app_borrow_books/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss10_session_&amp;_cookie_in_spring/exercise/complete_carts/src/main/java/com/example/complete_cart/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss10_session_&amp;_cookie_in_spring/exercise/complete_carts/src/main/java/com/example/complete_cart/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/service/CodeBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/service/CodeBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/service/IBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/app_borrow_book/service/IBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/app_borrow_book/AppBorrowBookApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/AppBorrowBookApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/ServletInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/config/LogAOP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/controller/BookController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/controller/ExceptionBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/model/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/model/CodeBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/repository/IBookRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/repository/ICodeBookRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/service/BookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/service/CodeBookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/service/IBookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/java/com/example/app_borrow_book/service/ICodeBookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/resources/templates/error1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/resources/templates/error2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/resources/templates/list_book.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/resources/templates/pay_book.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/main/resources/templates/view_book.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app_borrow_books/src/test/java/com/example/app_borrow_book/AppBorrowBooksApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2LiunBhH9QEIXo7IP1lf1NMY742" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CodeGym\C0922G1-TranBaTai-Module4\ss9_aop_&amp;_exception_handling\exercise\app_borrow_books\src\main\resources" />
+      <recent name="D:\CodeGym\C0922G1-TranBaTai-Module4\ss9_aop_&amp;_exception_handling\exercise\app_borrow_books\src\main\java\com\example" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AppBorrowBookApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="app_borrow_books.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.app_borrow_book.AppBorrowBookApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7328d00b-1a4d-4b90-8d08-e8f03c4c2964" name="Changes" comment="" />
+      <created>1676366391515</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676366391515</updated>
+      <workItem from="1676366393141" duration="420000" />
+      <workItem from="1676366857028" duration="31000" />
+      <workItem from="1676366960400" duration="15000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
