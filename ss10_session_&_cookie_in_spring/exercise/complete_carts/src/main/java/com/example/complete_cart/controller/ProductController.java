@@ -1,15 +1,18 @@
 package com.example.complete_cart.controller;
 
+import com.example.complete_cart.model.Product;
+import com.example.complete_cart.service.IProductService;
 import com.example.complete_cart.util.CartDto;
 import com.example.complete_cart.util.ExceptionProduct;
 import com.example.complete_cart.util.ProductDto;
-import com.example.complete_cart.model.Product;
-import com.example.complete_cart.service.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.Optional;
 
@@ -25,7 +28,7 @@ public class ProductController {
         return new CartDto();
     }
 
-    @GetMapping
+    @GetMapping("/cart")
     public String showList(Model model) {
         model.addAttribute("listProduct", iProductService.findAll());
         return "listProduct";
