@@ -13,11 +13,13 @@ public class ProductService implements IProductService {
     @Autowired
     IProductRepository productRepository;
 
+    @Override
     public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    public Optional<Product> findById(int id){
+    @Override
+    public Optional<Product> findById(int id) {
         return productRepository.findById(id);
     }
 }
