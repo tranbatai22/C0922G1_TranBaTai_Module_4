@@ -5,6 +5,7 @@ import com.example.restful_blog2.model.Category;
 import com.example.restful_blog2.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -22,13 +23,15 @@ public class BlogRestController {
     private IBlogService blogService;
 
     @GetMapping("")
-    public ResponseEntity<List<Blog>> showList() {
-        List<Blog> blogList = blogService.findAll();
-        if (blogList == null) {
+    public ResponseEntity<Page<Blog>> getAll(@RequestParam(required = false,defaultValue = "") String name,
+                                             @RequestParam(required = false,defaultValue = "0") int page,
+                                             @RequestParam(required = false,defaultValue = "0") int size){
+        Pageable pageable = PageRequest.of(page,size);
+        Page<Blog> blogPage = blogService.search(name, pageable);
+        if (blogPage.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(blogList, HttpStatus.OK);
         }
+        return new ResponseEntity<>(blogPage, HttpStatus.OK);
     }
 
     @GetMapping("/byCategory")

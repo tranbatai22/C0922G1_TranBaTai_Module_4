@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<center>
+<h1>Blog List</h1>
+<form action="" method="get">
+    <input type="text" id="searchName" name="name">
+    <button type="button" onclick="search()"> search</button>
+</form>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>CreateDate</th>
+        <th>Description</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+<button type="button" onclick="more()">More</button>
+</center>
+</body>
+
+<script>
+    $(document).ready(function () {
+        showList();
+    })
+    let size = 1;
+    function search(){
+        size = 1;
+        showList();
+    }
+    function showList(){
+        let searchName = $('#searchName').val();
+        let link = `http://localhost:8080/api/blog?name=${searchName}&size=${size}`;
+        $.ajax({
+            type: "Get",
+            dataType: "json",
+            url: link,
+            success: function (data){
+                console.log(data)
+                let content='';
+                let content1 = data.content;
+                for (let i = 0; i < content1.length; i++) {
+                    content += `<tr>`
+                    content += `<td>${content1[i].id}</td>`
+                    content += `<td>${content1[i].name}</td>`
+                    content += `<td>${content1[i].createDate}</td>`
+                    content += `<td>${content1[i].description}</td>`
+                    content += `<td>${content1[i].category.name}</td>`
+                    content += `</tr>`
+                }
+                $('#tbody').html(content);
+            }
+        })
+    }
+
+    function more(){
+        size += 2;
+        showList();
+    }
+</script>
+</html>

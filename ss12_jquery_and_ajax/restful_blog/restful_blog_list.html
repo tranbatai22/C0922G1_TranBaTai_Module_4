@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.3.js"
+            integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<table class="table table-triper">
+    <thead>
+    <tr>
+        <th>Id</th>5
+        <th>Name</th>
+        <th>Create Date</th>
+        <th>Description</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+
+<script>
+    showList();
+    function showList() {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "http://localhost:8080/api/blog",
+            success: function (data) {
+                console.log(data);
+                let content = '';
+                for (let i = 0; i < data.length; i++) {
+                    content += `<tr>`
+                    content += `<td>${data[i].id}</td>`
+                    content += `<td>${data[i].name}</td>`
+                    content += `<td>${data[i].createDate}</td>`
+                    content += `<td>${data[i].description}</td>`
+                    content += `<td>${data[i].category.name}</td>`
+                    content += `</tr>`
+                }
+                $('#tbody').html(content);
+            }
+        })
+
+    }
+</script>
+</body>
+</html>

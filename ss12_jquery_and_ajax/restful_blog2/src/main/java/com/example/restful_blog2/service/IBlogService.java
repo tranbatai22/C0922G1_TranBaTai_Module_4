@@ -13,5 +13,7 @@ public interface IBlogService {
 
     void save(Blog blog);
 
-    Page<Blog>findBlogByCategory_Id(int id,Pageable pageable);
+    Page<Blog> search(String name, Pageable pageable);
+
+    Page<Blog> findBlogByCategory_Id(int id, Pageable pageable);
 }
