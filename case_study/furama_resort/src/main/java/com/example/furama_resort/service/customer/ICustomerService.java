@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ICustomerService {
 
-    Page<Customer> search(String name,String email,Pageable pageable);
+    Page<Customer> search(String searchName,String searchEmail,Pageable pageable);
 
     void save(Customer customer);
 }

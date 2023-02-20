@@ -11,36 +11,31 @@ import java.util.Set;
 public class CustomerType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int customerTypeId;
     @Size(min = 0, max = 50)
     @NonNull
-    private String name;
+    private String customerTypeName;
     @OneToMany(mappedBy = "customerType")
     private Set<Customer> customerSet;
 
     public CustomerType() {
     }
 
-    public CustomerType(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public int getCustomerTypeId() {
+        return customerTypeId;
     }
 
-
-    public int getId() {
-        return id;
+    public void setCustomerTypeId(int customerTypeId) {
+        this.customerTypeId = customerTypeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @NonNull
+    public String getCustomerTypeName() {
+        return customerTypeName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomerTypeName(@NonNull String customerTypeName) {
+        this.customerTypeName = customerTypeName;
     }
 
     public Set<Customer> getCustomerSet() {

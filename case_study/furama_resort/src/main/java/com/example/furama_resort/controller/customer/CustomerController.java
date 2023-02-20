@@ -24,8 +24,8 @@ public class CustomerController {
 
     @GetMapping("")
     public String showList(Model model, @RequestParam(required = false, value = "searchName", defaultValue = "") String searchName,
-                           @RequestParam(required = false, value = "searchEmail", defaultValue = "") String searchEmail,
-                           @PageableDefault(size = 5) Pageable pageable) {
+                                        @RequestParam(required = false, value = "searchEmail", defaultValue = "") String searchEmail,
+                                        @PageableDefault(size = 5) Pageable pageable) {
         model.addAttribute("customerPage", customerService.search(searchName, searchEmail, pageable));
         model.addAttribute("customerTypeList", customerTypeService.findAll());
         model.addAttribute("searchName", searchName);

@@ -37,7 +37,7 @@ public class Customer {
     @NotNull
     private String address;
     @ManyToOne
-    @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
+    @JoinColumn(name = "customer_type_id", referencedColumnName = "customerTypeId")
     private CustomerType customerType;
 
     @OneToMany(mappedBy = "customer")
@@ -70,7 +70,7 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int isGender() {
+    public int getGender() {
         return gender;
     }
 
