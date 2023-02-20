@@ -30,6 +30,8 @@
         <td>PhoneNumber</td>
         <td>Email</td>
         <td>Address</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
     <tr th:each="customer, stt : ${customerPage}">
         <td th:text="${stt.count + customerPage.number*5}"></td>
@@ -45,6 +47,8 @@
         <td th:text="${customer.phoneNumber}"></td>
         <td th:text="${customer.email}"></td>
         <td th:text="${customer.address}"></td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
 </table>
 
