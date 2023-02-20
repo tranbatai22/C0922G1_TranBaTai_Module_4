@@ -17,7 +17,7 @@ public class Customer {
     private String name;
     @NotNull
     private String dateOfBirth;
-    private boolean gender;
+    private int gender;
 
     @Column(unique = true)
     @Size(min = 0, max = 50)
@@ -70,11 +70,11 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isGender() {
+    public int isGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 

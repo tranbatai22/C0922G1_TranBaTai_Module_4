@@ -23,16 +23,13 @@ public class CustomerController {
     private ICustomerTypeService customerTypeService;
 
     @GetMapping("")
-    public String showList(Model model, @RequestParam(required = false, defaultValue = "") String searchName,
-                           @RequestParam(required = false, defaultValue = "") String searchEmail,
-                           @RequestParam(required = false, defaultValue = "") String searchCustomerTypeName,
-                           @PageableDefault(size = 5, page = 0, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Customer> customerPage = customerService.search(searchName, searchEmail, searchCustomerTypeName, pageable);
+    public String showList(Model model, @RequestParam(required = false, value = "searchName", defaultValue = "") String searchName,
+                           @RequestParam(required = false, value = "searchEmail", defaultValue = "") String searchEmail,
+                           @PageableDefault(size = 5) Pageable pageable) {
+        model.addAttribute("customerPage", customerService.search(searchName, searchEmail, pageable));
         model.addAttribute("customerTypeList", customerTypeService.findAll());
-        model.addAttribute("customerPage", customerPage);
         model.addAttribute("searchName", searchName);
         model.addAttribute("searchEmail", searchEmail);
-        model.addAttribute("searchCustomerTypeName", searchCustomerTypeName);
         return "/customer/list";
     }
 }

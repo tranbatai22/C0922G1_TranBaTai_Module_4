@@ -8,5 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
-    @Query(value = "select * from customer where name like :name and email like :email and customer_type_id like :customer_type_id", nativeQuery = true)
-    Page<Customer> search(@Param("name") String name, @Param("email") String email, @Param("customer_type_id") String customerTypeId, Pageable pageable);}
+    @Query(value = "select * from customer where name like :name and email like :email", nativeQuery = true)
+    Page<Customer> search(@Param("name") String name, @Param("email") String email, Pageable pageable);
+}
