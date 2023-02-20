@@ -4,6 +4,8 @@ import com.example.furama_resort.model.customer.Customer;
 import com.example.furama_resort.repository.customer.ICustomerRepository;
 import com.example.furama_resort.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +16,8 @@ public class CustomerService implements ICustomerService {
     private ICustomerRepository customerRepository;
 
     @Override
-    public List<Customer> findAll() {
-        return customerRepository.findAll();
+    public Page<Customer> search(String name, String email, String customerTypeId, Pageable pageable) {
+        return customerRepository.search(name, email, customerTypeId, pageable);
     }
 
     @Override
