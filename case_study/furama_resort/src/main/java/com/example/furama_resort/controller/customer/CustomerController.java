@@ -45,29 +45,29 @@ public class CustomerController {
         return "/customer/create";
     }
 
-//    @PostMapping("/create")
-//    public String saveCus(@ModelAttribute @Validated CustomerDto customerDto, BindingResult bindingResult,
-//                          RedirectAttributes redirectAttributes, Model model) {
-//
-//        Map<String, String> messError = customerService.messError(customerDto);
-//        new CustomerDto().validate(customerDto, bindingResult);
-//        model.addAttribute("customerDtoc",customerDto);
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("customerTypeList", customerTypeService.findAll());
-//            return "customer/create";
-//        }
-//
-//        if (messError.isEmpty()) {
-//            Customer customer = new Customer();
-//            BeanUtils.copyProperties(customerDto, customer);
-//            customerService.save(customer);
-//            redirectAttributes.addFlashAttribute("message", "Thêm mới khách hàng thành công!");
-//        } else {
-//            for (Map.Entry<String, String> error : messError.entrySet()) {
-//                bindingResult.rejectValue(error.getKey(), error.getValue());
-//            }
-//        }
-//
-//        return "redirect:/customer";
-//    }
+    @PostMapping("/create")
+    public String saveCus(@ModelAttribute @Validated CustomerDto customerDto, BindingResult bindingResult,
+                          RedirectAttributes redirectAttributes, Model model) {
+
+        Map<String, String> messError = customerService.messError(customerDto);
+        new CustomerDto().validate(customerDto, bindingResult);
+        model.addAttribute("customerDto",customerDto);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("customerTypeList", customerTypeService.findAll());
+            return "customer/create";
+        }
+
+        if (messError.isEmpty()) {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerDto, customer);
+            customerService.save(customer);
+            redirectAttributes.addFlashAttribute("message", "Thêm mới khách hàng thành công!");
+        } else {
+            for (Map.Entry<String, String> error : messError.entrySet()) {
+                bindingResult.rejectValue(error.getKey(), error.getValue());
+            }
+        }
+
+        return "redirect:/customer";
+    }
 }
