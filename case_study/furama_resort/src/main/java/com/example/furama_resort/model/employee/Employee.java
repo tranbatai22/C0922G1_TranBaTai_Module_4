@@ -4,6 +4,8 @@ import com.example.furama_resort.model.contract.Contract;
 import com.example.furama_resort.model.user.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -11,12 +13,29 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Size(min = 0, max = 50)
+    @NotNull
     private String name;
+    @NotNull
     private String dateOfBirth;
-    private int idCard;
+
+    @Column(unique = true)
+    @Size(min = 0, max = 50)
+    @NotNull
+    private String idCard;
     private double salary;
+
+    @Column(unique = true)
+    @Size(min = 10, max = 10)
+    @NotNull
     private String phoneNumber;
+
+    @Column(unique = true)
+    @Size(min = 0, max = 50)
+    @NotNull
     private String email;
+    @NotNull
+    @Size(min = 0, max = 100)
     private String address;
     @ManyToOne
     @JoinColumn(name = "position_id", referencedColumnName = "id")
@@ -34,33 +53,6 @@ public class Employee {
     private Set<Contract> contractSet;
 
     public Employee() {
-    }
-
-    public Employee(int id, String name, String dateOfBirth, int idCard, double salary, String phoneNumber, String email, String address) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.idCard = idCard;
-        this.salary = salary;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-    }
-
-    public Employee(int id, String name, String dateOfBirth, int idCard, double salary, String phoneNumber, String email, String address, Position position, Division division, EducationDegree educationDegree, User user, Set<Contract> contractSet) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.idCard = idCard;
-        this.salary = salary;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-        this.position = position;
-        this.division = division;
-        this.educationDegree = educationDegree;
-        this.user = user;
-        this.contractSet = contractSet;
     }
 
     public int getId() {
@@ -87,11 +79,11 @@ public class Employee {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getIdCard() {
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(int idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 

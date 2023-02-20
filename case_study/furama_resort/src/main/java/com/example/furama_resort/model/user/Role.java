@@ -1,26 +1,22 @@
 package com.example.furama_resort.model.user;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
 public class Role {
     @Id
     private int roleId;
+
+    @Column(unique = true)
+    @Size(min = 0, max = 50)
     private String roleName;
+
     @ManyToMany(mappedBy = "roleSet")
     private Set<User> userSet;
 
     public Role() {
-    }
-
-    public Role(int roleId, String roleName, Set<User> userSet) {
-        this.roleId = roleId;
-        this.roleName = roleName;
-        this.userSet = userSet;
     }
 
     public int getRoleId() {

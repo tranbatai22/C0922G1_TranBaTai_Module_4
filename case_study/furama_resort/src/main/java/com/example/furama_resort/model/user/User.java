@@ -1,12 +1,19 @@
 package com.example.furama_resort.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
 public class User {
     @Id
+    @Size(min = 8, max = 50)
     private String userName;
+    @JsonIgnore
+    @NotNull
     private String passWord;
     @ManyToMany
     @JoinTable(name = "user_role",
@@ -15,12 +22,6 @@ public class User {
     private Set<Role> roleSet;
 
     public User() {
-    }
-
-    public User(String userName, String passWord, Set<Role> roleSet) {
-        this.userName = userName;
-        this.passWord = passWord;
-        this.roleSet = roleSet;
     }
 
     public String getUserName() {

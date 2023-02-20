@@ -1,8 +1,10 @@
 package com.example.furama_resort.model.customer;
 
 import com.example.furama_resort.model.customer.Customer;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -10,6 +12,8 @@ public class CustomerType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Size(min = 0, max = 50)
+    @NonNull
     private String name;
     @OneToMany(mappedBy = "customerType")
     private Set<Customer> customerSet;
@@ -22,11 +26,6 @@ public class CustomerType {
         this.name = name;
     }
 
-    public CustomerType(int id, String name, Set<Customer> customerSet) {
-        this.id = id;
-        this.name = name;
-        this.customerSet = customerSet;
-    }
 
     public int getId() {
         return id;

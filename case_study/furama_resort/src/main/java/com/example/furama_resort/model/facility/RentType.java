@@ -1,6 +1,7 @@
 package com.example.furama_resort.model.facility;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -8,22 +9,12 @@ public class RentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Size(min = 0, max = 50)
     private String name;
     @OneToMany(mappedBy = "rentType")
     private Set<Facility> facilitySet;
 
     public RentType() {
-    }
-
-    public RentType(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public RentType(int id, String name, Set<Facility> facilitySet) {
-        this.id = id;
-        this.name = name;
-        this.facilitySet = facilitySet;
     }
 
     public int getId() {

@@ -3,6 +3,7 @@ package com.example.furama_resort.model.employee;
 import com.example.furama_resort.model.employee.Employee;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -10,23 +11,15 @@ public class EducationDegree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
+    @Size(min = 0, max = 50)
     private String name;
 
     @OneToMany(mappedBy = "educationDegree")
     private Set<Employee> employeeSet;
 
     public EducationDegree() {
-    }
-
-    public EducationDegree(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public EducationDegree(int id, String name, Set<Employee> employeeSet) {
-        this.id = id;
-        this.name = name;
-        this.employeeSet = employeeSet;
     }
 
     public Set<Employee> getEmployeeSet() {

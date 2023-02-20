@@ -25,28 +25,12 @@ public class Contract {
     @JoinColumn(name = "facility_id", referencedColumnName = "id")
     private Facility facility;
     @OneToMany(mappedBy = "contract")
+
     private Set<ContractDetail> contractDetailSet;
 
     public Contract() {
     }
 
-    public Contract(int id, String startDate, String endDate, double deposit) {
-        this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.deposit = deposit;
-    }
-
-    public Contract(int id, String startDate, String endDate, double deposit, Employee employee, Customer customer, Facility facility, Set<ContractDetail> contractDetailSet) {
-        this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.deposit = deposit;
-        this.employee = employee;
-        this.customer = customer;
-        this.facility = facility;
-        this.contractDetailSet = contractDetailSet;
-    }
 
     public int getId() {
         return id;

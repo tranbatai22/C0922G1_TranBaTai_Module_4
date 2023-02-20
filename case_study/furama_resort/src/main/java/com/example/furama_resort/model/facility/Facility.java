@@ -3,6 +3,8 @@ package com.example.furama_resort.model.facility;
 import com.example.furama_resort.model.contract.Contract;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -10,14 +12,24 @@ public class Facility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
+    @Size(min = 0, max = 50)
+    @NotNull
     private String name;
+    @NotNull
     private int area;
     private double cost;
+    @NotNull
     private int maxPeople;
+    @Size(min = 0, max = 100)
     private String standardRoom;
+    @Size(min = 0, max = 100)
     private String descriptionOtherConvenience;
     private double poolArea;
+    @NotNull
     private int numberOfFloors;
+    @Size(min = 0, max = 100)
     private String facilityFree;
     @ManyToOne
     @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
@@ -29,35 +41,6 @@ public class Facility {
     private Set<Contract> contractSet;
 
     public Facility() {
-    }
-
-    public Facility(int id, String name, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree) {
-        this.id = id;
-        this.name = name;
-        this.area = area;
-        this.cost = cost;
-        this.maxPeople = maxPeople;
-        this.standardRoom = standardRoom;
-        this.descriptionOtherConvenience = descriptionOtherConvenience;
-        this.poolArea = poolArea;
-        this.numberOfFloors = numberOfFloors;
-        this.facilityFree = facilityFree;
-    }
-
-    public Facility(int id, String name, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType, Set<Contract> contractSet) {
-        this.id = id;
-        this.name = name;
-        this.area = area;
-        this.cost = cost;
-        this.maxPeople = maxPeople;
-        this.standardRoom = standardRoom;
-        this.descriptionOtherConvenience = descriptionOtherConvenience;
-        this.poolArea = poolArea;
-        this.numberOfFloors = numberOfFloors;
-        this.facilityFree = facilityFree;
-        this.facilityType = facilityType;
-        this.rentType = rentType;
-        this.contractSet = contractSet;
     }
 
     public int getId() {

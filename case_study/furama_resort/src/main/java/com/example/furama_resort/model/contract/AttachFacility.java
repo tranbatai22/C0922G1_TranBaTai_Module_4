@@ -1,6 +1,9 @@
 package com.example.furama_resort.model.contract;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -8,6 +11,7 @@ public class AttachFacility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Size(min = 0, max = 50)
     private String name;
     private double cost;
     private String unit;
@@ -16,15 +20,6 @@ public class AttachFacility {
     private Set<ContractDetail> contractDetailSet;
 
     public AttachFacility() {
-    }
-
-    public AttachFacility(int id, String name, double cost, String unit, String status, Set<ContractDetail> contractDetailSet) {
-        this.id = id;
-        this.name = name;
-        this.cost = cost;
-        this.unit = unit;
-        this.status = status;
-        this.contractDetailSet = contractDetailSet;
     }
 
     public int getId() {

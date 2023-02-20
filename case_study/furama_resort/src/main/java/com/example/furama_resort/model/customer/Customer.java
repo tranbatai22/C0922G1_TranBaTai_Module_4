@@ -3,6 +3,8 @@ package com.example.furama_resort.model.customer;
 import com.example.furama_resort.model.contract.Contract;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -10,12 +12,29 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Size(min = 0, max = 50)
+    @NotNull
     private String name;
+    @NotNull
     private String dateOfBirth;
     private boolean gender;
+
+    @Column(unique = true)
+    @Size(min = 0, max = 50)
+    @NotNull
     private String idCard;
+
+    @Column(unique = true)
+    @Size(min = 10, max = 10)
+    @NotNull
     private String phoneNumber;
+
+    @Column(unique = true)
+    @Size(min = 0, max = 50)
+    @NotNull
     private String email;
+    @Size(min = 0, max = 100)
+    @NotNull
     private String address;
     @ManyToOne
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
@@ -25,30 +44,6 @@ public class Customer {
     private Set<Contract> contractSet;
 
     public Customer() {
-    }
-
-    public Customer(int id, String name, String dateOfBirth, boolean gender, String idCard, String phoneNumber, String email, String address) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.idCard = idCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-    }
-
-    public Customer(int id, String name, String dateOfBirth, boolean gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType, Set<Contract> contractSet) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.idCard = idCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-        this.customerType = customerType;
-        this.contractSet = contractSet;
     }
 
     public int getId() {
