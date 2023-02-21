@@ -8,11 +8,11 @@ import java.util.Set;
 public class FacilityType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int facilityTypeId;
 
     @Column(unique = true)
     @Size(min = 0, max = 50)
-    private String name;
+    private String facilityTypeName;
 
     @OneToMany(mappedBy = "facilityType")
     private Set<Facility> facilitySet;
@@ -20,20 +20,20 @@ public class FacilityType {
     public FacilityType() {
     }
 
-    public int getId() {
-        return id;
+    public int getFacilityTypeId() {
+        return facilityTypeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFacilityTypeId(int facilityTypeId) {
+        this.facilityTypeId = facilityTypeId;
     }
 
-    public String getName() {
-        return name;
+    public String getFacilityTypeName() {
+        return facilityTypeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFacilityTypeName(String facilityTypeName) {
+        this.facilityTypeName = facilityTypeName;
     }
 
     public Set<Facility> getFacilitySet() {

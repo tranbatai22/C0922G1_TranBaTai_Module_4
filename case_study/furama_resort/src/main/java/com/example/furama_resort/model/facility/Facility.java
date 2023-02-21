@@ -32,10 +32,10 @@ public class Facility {
     @Size(min = 0, max = 100)
     private String facilityFree;
     @ManyToOne
-    @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
+    @JoinColumn(name = "facility_type_id", referencedColumnName = "facilityTypeId")
     private FacilityType facilityType;
     @ManyToOne
-    @JoinColumn(name = "rent_type_id", referencedColumnName = "id")
+    @JoinColumn(name = "rent_type_id", referencedColumnName = "rentTypeId")
     private RentType rentType;
     @OneToMany(mappedBy = "facility")
     private Set<Contract> contractSet;

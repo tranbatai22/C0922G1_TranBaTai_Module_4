@@ -91,9 +91,9 @@ public class CustomerController {
     }
 
 
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id){
-        customerService.delete(id);
-        return "/customer/list";
-    }
+//    @GetMapping("/delete/{id}")
+//    public String delete(@PathVariable int id){
+//        customerService.delete(id);
+//        return "/customer/list";
+//    }
 }
