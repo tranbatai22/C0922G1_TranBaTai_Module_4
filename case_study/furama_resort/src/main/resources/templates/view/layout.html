@@ -11,7 +11,7 @@
 <header th:fragment="header">
     <div>
         <!--Header-->
-        <div class="row" style="background-color: whitesmoke; padding: 20px">
+        <div class="row" style="background-color: gray; padding: 20px">
             <div class="col-lg-3">
                 <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png"
                      style="width: 100px; margin-left: 70px">
@@ -73,8 +73,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <form class="d-flex">
-                            <input class="form-control me-2 algin" type="search" placeholder="Search" aria-label="Search">
+                        <form class="d-flex" th:action="@{/customer}" method="get">
+                            <input class="form-control me-2 algin" type="text" placeholder="Search" th:value="${searchName}">
                             <button class="btn btn-outline-success text-white" type="submit">Search</button>
                         </form>
                     </div>

@@ -5,8 +5,8 @@ import com.example.furama_resort.model.customer.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface ICustomerService {
 
@@ -14,5 +14,9 @@ public interface ICustomerService {
 
     void save(Customer customer);
 
+    Optional<Customer> findById(int id);
+
     Map<String,String> error(CustomerDto customerDto);
+
+    void delete(int id);
 }

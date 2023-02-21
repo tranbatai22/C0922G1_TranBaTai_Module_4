@@ -10,8 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class CustomerService implements ICustomerService {
@@ -19,7 +19,7 @@ public class CustomerService implements ICustomerService {
     private ICustomerRepository customerRepository;
 
     @Override
-    public Page<Customer> search(String searchName, String searchEmail,Pageable pageable) {
+    public Page<Customer> search(String searchName, String searchEmail, Pageable pageable) {
         return customerRepository.search(searchName, searchEmail, pageable);
     }
 
@@ -29,19 +29,29 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
+    public Optional<Customer> findById(int id) {
+        return customerRepository.findById(id);
+    }
+
+    @Override
     public Map<String, String> error(CustomerDto customerDto) {
-        Map<String, String> messError=new HashMap<>();
-        for (Customer customer:customerRepository.findAll()) {
-            if (customer.getIdCard().equals(customerDto.getIdCard())){
-                messError.put("Id Card","Id Card đã tồn tại!");
+        Map<String, String> messError = new HashMap<>();
+        for (Customer customer : customerRepository.findAll()) {
+            if (customer.getIdCard().equals(customerDto.getIdCard())) {
+                messError.put("Id Card", "Id Card đã tồn tại!");
             }
-            if (customer.getEmail().equals(customerDto.getEmail())){
-                messError.put("Email","Email đã tồn tại!");
+            if (customer.getEmail().equals(customerDto.getEmail())) {
+                messError.put("Email", "Email đã tồn tại!");
             }
-            if (customer.getPhoneNumber().equals(customerDto.getPhoneNumber())){
-                messError.put("Số điện thoại","Số điện thoại đã tồn tại!");
+            if (customer.getPhoneNumber().equals(customerDto.getPhoneNumber())) {
+                messError.put("Số điện thoại", "Số điện thoại đã tồn tại!");
             }
         }
         return messError;
+    }
+
+    @Override
+    public void delete(int id) {
+        customerRepository.deleteById(id);
     }
 }
