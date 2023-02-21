@@ -20,7 +20,6 @@
               th:object="${customerDto}" method="post" novalidate="novalidate">
             <div class="form-group">
                 <label for="name" class="h6">Tên khách hàng:</label>
-                <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                 <div class="input-group">
                     <input type="text" id="name" class="form-control" placeholder="Nhập tên khách hàng.."
                            th:field="*{name}"/>
@@ -30,14 +29,12 @@
 
             <div class="mt-3 form-group">
                 <label for="dateOfBirth" class="h6">Ngày sinh:</label>
-                <p style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}"
                    th:errors="*{dateOfBirth}"></p>
                 <input type="date" id="dateOfBirth" class="form-control" th:field="*{dateOfBirth}"/>
             </div>
 
             <div class="mt-3 form-group">
                 <label class="h6">Giới tính:</label>
-                <p style="color: red" th:if="${#fields.hasErrors('gender')}"
                    th:errors="*{gender}"></p>
                 <div class="d-flex">
                     <label class="d-block me-4">
@@ -59,7 +56,6 @@
 
             <div class="mt-3 form-group">
                 <label for="idCard" class="h6">Số CMND/CCCD:</label>
-                <p style="color: red" th:if="${#fields.hasErrors('idCard')}"
                    th:errors="*{idCard}"></p>
                 <div class="input-group">
                     <input type="text" id="idCard" class="form-control" placeholder="Nhập số CMND/CCCD.."
@@ -70,7 +66,6 @@
 
             <div class="mt-3 form-group">
                 <label for="phone" class="h6">Số điện thoại:</label>
-                <p style="color: red" th:if="${#fields.hasErrors('phoneNumber')}"
                    th:errors="*{phoneNumber}"></p>
                 <div class="input-group">
                     <input type="text" id="phone" class="form-control" placeholder="Nhập SĐT.."
@@ -81,7 +76,6 @@
 
             <div class="mt-3 form-group">
                 <label for="email" class="h6">Email:</label>
-                <p style="color: red" th:if="${#fields.hasErrors('email')}"
                    th:errors="*{email}"></p>
                 <div class="input-group">
                     <input type="text" id="email" class="form-control" placeholder="Nhập email.."
@@ -92,7 +86,6 @@
 
             <div class="mt-3 form-group">
                 <label for="address" class="h6">Địa chỉ:</label>
-                <p style="color: red" th:if="${#fields.hasErrors('address')}"
                    th:errors="*{address}"></p>
                 <div class="input-group">
                     <input type="text" id="address" class="form-control" placeholder="Nhập địa chỉ.."
@@ -114,7 +107,7 @@
 
             <div class="mt-3 text-center">
                 <button class="btn btn-info btn-outline-success btn-sm border border-2 border-success text-dark">
-                    -- Lưu <i class="fa-solid fa-floppy-disk"></i> --
+                    -- Save <i class="fa-solid fa-floppy-disk"></i> --
                 </button>
             </div>
         </form>

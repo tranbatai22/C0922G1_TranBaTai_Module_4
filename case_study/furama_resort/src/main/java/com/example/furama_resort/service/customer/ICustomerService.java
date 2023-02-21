@@ -14,5 +14,5 @@ public interface ICustomerService {
 
     void save(Customer customer);
 
-    Map<String,String> messError(CustomerDto customerDto);
+    Map<String,String> error(CustomerDto customerDto);
 }

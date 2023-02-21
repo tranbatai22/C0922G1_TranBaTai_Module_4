@@ -46,10 +46,9 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String saveCus(@ModelAttribute @Validated CustomerDto customerDto, BindingResult bindingResult,
+    public String create(@ModelAttribute @Validated CustomerDto customerDto, BindingResult bindingResult,
                           RedirectAttributes redirectAttributes, Model model) {
-
-        Map<String, String> messError = customerService.messError(customerDto);
+        Map<String, String> messError = customerService.error(customerDto);
         new CustomerDto().validate(customerDto, bindingResult);
         model.addAttribute("customerDto",customerDto);
         if (bindingResult.hasErrors()) {
@@ -61,7 +60,7 @@ public class CustomerController {
             Customer customer = new Customer();
             BeanUtils.copyProperties(customerDto, customer);
             customerService.save(customer);
-            redirectAttributes.addFlashAttribute("message", "Thêm mới khách hàng thành công!");
+            redirectAttributes.addFlashAttribute("message", "Thêm mới khách hàng thành công");
         } else {
             for (Map.Entry<String, String> error : messError.entrySet()) {
                 bindingResult.rejectValue(error.getKey(), error.getValue());

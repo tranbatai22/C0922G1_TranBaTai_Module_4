@@ -29,17 +29,17 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public Map<String, String> messError(CustomerDto customerDto) {
+    public Map<String, String> error(CustomerDto customerDto) {
         Map<String, String> messError=new HashMap<>();
         for (Customer customer:customerRepository.findAll()) {
             if (customer.getIdCard().equals(customerDto.getIdCard())){
-                messError.put("Id Card","Id Card đã tồn tại!!");
+                messError.put("Id Card","Id Card đã tồn tại!");
             }
             if (customer.getEmail().equals(customerDto.getEmail())){
-                messError.put("Email","Email đã tồn tại!!");
+                messError.put("Email","Email đã tồn tại!");
             }
             if (customer.getPhoneNumber().equals(customerDto.getPhoneNumber())){
-                messError.put("Số điện thoại","Số điện thoại đã tồn tại!!");
+                messError.put("Số điện thoại","Số điện thoại đã tồn tại!");
             }
         }
         return messError;
