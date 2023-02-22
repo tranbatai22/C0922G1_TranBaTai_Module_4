@@ -1,10 +1,7 @@
 package com.example.furama_resort.controller.customer;
 
-import com.example.furama_resort.dto.CustomerDto;
 import com.example.furama_resort.dto.FacilityDto;
-import com.example.furama_resort.model.customer.Customer;
 import com.example.furama_resort.model.facility.Facility;
-import com.example.furama_resort.repository.facility.IFacilityRepository;
 import com.example.furama_resort.service.facility.IFacilityService;
 import com.example.furama_resort.service.facility.IFacilityTypeService;
 import com.example.furama_resort.service.facility.IRentTypeService;
@@ -20,7 +17,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.Map;
 import java.util.Objects;
 
 @Controller

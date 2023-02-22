@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/customer")
@@ -32,7 +33,7 @@ public class CustomerController {
     public String showList(Model model, @RequestParam(required = false, value = "searchName", defaultValue = "") String searchName,
                            @RequestParam(required = false, value = "searchEmail", defaultValue = "") String searchEmail,
                            @RequestParam(required = false, value = "searchCustomerTypeName", defaultValue = "") String searchCustomerTypeName,
-                           @PageableDefault(size = 5) Pageable pageable) {
+                           @PageableDefault(size = 3) Pageable pageable) {
         Page<Customer> customerPage;
         if(Objects.equals(searchCustomerTypeName, "")){
             customerPage = customerService.search1(searchName,searchEmail,pageable);
@@ -69,12 +70,13 @@ public class CustomerController {
             Customer customer = new Customer();
             BeanUtils.copyProperties(customerDto, customer);
             customerService.save(customer);
-            redirectAttributes.addFlashAttribute("messCreate", "Thêm mới khách hàng thành công");
-        } else {
-            for (Map.Entry<String, String> error : messError.entrySet()) {
-                bindingResult.rejectValue(error.getKey(), error.getValue());
-            }
+            redirectAttributes.addFlashAttribute("mess", "Thêm mới khách hàng thành công");
         }
+//        else {
+//            for (Map.Entry<String, String> error : messError.entrySet()) {
+//                bindingResult.rejectValue(error.getKey(), error.getValue());
+//            }
+//        }
         return "redirect:/customer";
     }
 
@@ -95,14 +97,23 @@ public class CustomerController {
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);
         customerService.save(customer);
-        redirectAttributes.addFlashAttribute("messEdit", "Chỉnh sửa thành công");
+        redirectAttributes.addFlashAttribute("mess", "Chỉnh sửa thành công");
         return "redirect:/customer";
     }
 
 
-//    @GetMapping("/delete/{id}")
-//    public String delete(@PathVariable int id){
-//        customerService.delete(id);
-//        return "/customer/list";
-//    }
+    @PostMapping(value = "/delete")
+    public String deleteCustomer(@ModelAttribute("customer") CustomerDto customerDto, RedirectAttributes redirectAttributes) {
+        Optional<Customer> customer = customerService.findById(customerDto.getId());
+        customer.setDeleted(true);
+        boolean check = customerService.editCustomer(customer);
+        String mess;
+        if (check) {
+            mess = "Xóa thành công";
+        } else {
+            mess = "Đã xảy ra lỗi";
+        }
+        redirectAttributes.addFlashAttribute("mess", mess);
+        return "redirect:/customer/show-list";
+    }
 }

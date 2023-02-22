@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface IFacilityService {
     Page<Facility> search(String searchName, Pageable pageable);
+
     Page<Facility> search1(String searchName,String searchFacilityTypeName, Pageable pageable);
 
     void save(Facility facility);

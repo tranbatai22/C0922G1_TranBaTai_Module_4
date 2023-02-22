@@ -12,29 +12,18 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Size(min = 0, max = 50)
-    @NotNull
     private String name;
-    @NotNull
     private String dateOfBirth;
     private int gender;
 
     @Column(unique = true)
-    @Size(min = 0, max = 50)
-    @NotNull
     private String idCard;
 
     @Column(unique = true)
-    @Size(min = 10, max = 10)
-    @NotNull
     private String phoneNumber;
 
     @Column(unique = true)
-    @Size(min = 0, max = 50)
-    @NotNull
     private String email;
-    @Size(min = 0, max = 100)
-    @NotNull
     private String address;
     @ManyToOne
     @JoinColumn(name = "customer_type_id", referencedColumnName = "customerTypeId")

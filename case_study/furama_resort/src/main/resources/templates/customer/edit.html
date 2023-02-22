@@ -32,13 +32,11 @@
 
             <div class="mt-3 form-group">
                 <label for="dateOfBirth" class="h6">Ngày sinh:</label>
-                th:errors="*{dateOfBirth}"></p>
                 <input type="date" id="dateOfBirth" class="form-control" th:field="*{dateOfBirth}"/>
             </div>
 
             <div class="mt-3 form-group">
                 <label class="h6">Giới tính:</label>
-                th:errors="*{gender}"></p>
                 <div class="d-flex">
                     <label class="d-block me-4">
                         <input type="radio" th:field="*{gender}" th:value="0"/> Nữ
@@ -59,7 +57,6 @@
 
             <div class="mt-3 form-group">
                 <label for="idCard" class="h6">Số CMND/CCCD:</label>
-                th:errors="*{idCard}"></p>
                 <div class="input-group">
                     <input type="text" id="idCard" class="form-control" placeholder="Nhập số CMND/CCCD.."
                            th:field="*{idCard}"/>
@@ -69,7 +66,6 @@
 
             <div class="mt-3 form-group">
                 <label for="phone" class="h6">Số điện thoại:</label>
-                th:errors="*{phoneNumber}"></p>
                 <div class="input-group">
                     <input type="text" id="phone" class="form-control" placeholder="Nhập SĐT.."
                            th:field="*{phoneNumber}"/>
@@ -79,7 +75,6 @@
 
             <div class="mt-3 form-group">
                 <label for="email" class="h6">Email:</label>
-                th:errors="*{email}"></p>
                 <div class="input-group">
                     <input type="text" id="email" class="form-control" placeholder="Nhập email.."
                            th:field="*{email}"/>
@@ -89,7 +84,6 @@
 
             <div class="mt-3 form-group">
                 <label for="address" class="h6">Địa chỉ:</label>
-                th:errors="*{address}"></p>
                 <div class="input-group">
                     <input type="text" id="address" class="form-control" placeholder="Nhập địa chỉ.."
                            th:field="*{address}"/>

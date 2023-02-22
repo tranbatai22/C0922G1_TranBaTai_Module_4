@@ -4,19 +4,26 @@ import com.example.furama_resort.model.customer.CustomerType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 public class CustomerDto implements Validator {
     private int id;
+    @Size(min = 0, max = 50)
+    @NotBlank
     private String name;
     private String dateOfBirth;
     private int gender;
+    @Size(min = 0, max = 50)
+    @NotBlank
     private String idCard;
+    @Size(min = 10, max = 10)
+    @NotBlank
     private String phoneNumber;
+    @Size(min = 0, max = 50)
+    @Email
     private String email;
+    @Size(min = 0, max = 100)
+    @NotBlank
     private String address;
     private CustomerType customerType;
 
