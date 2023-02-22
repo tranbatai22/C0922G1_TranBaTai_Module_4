@@ -10,18 +10,38 @@
 <body>
 <head th:replace="/view/layout :: header"></head>
 <center>
-    <h2 th:text="${mess}"></h2>
-    <a th:href="@{/facility/create}">
-        <button class="btn btn-primary btn-outline-secondary btn-sm">
-            <span class="fa-solid fa-person-circle-plus text-light h5 my-auto me-1"></span>
-            <span class="text-light"> Thêm mới dịch vụ</span>
-        </button>
-    </a>
-    <form th:action="@{/facility}" method="get">
-        <input placeholder="Search customer by name" name="searchName" type="text" th:value="${searchName}"/>
-<!--        <input placeholder="Search customer by email" name="searchEmail" type="text" th:value="${searchEmail}"/>-->
-        <button class="btn btn-success">Search</button>
-    </form>
+    <h2 th:text="${messCreate}"></h2>
+    <h2 th:text="${messEdit}"></h2>
+    <div class="row">
+        <div class="col-3">
+            <a th:href="@{/facility/create}">
+                <button class="btn btn-primary btn-outline-secondary btn-sm">
+                    <span class="fa-solid fa-person-circle-plus text-light h5 my-auto me-1"></span>
+                    <span class="text-light">Thêm mới dịch vụ</span>
+                </button>
+            </a>
+        </div>
+        <div class="col-9">
+            <form class="row" th:action="@{/facility}" method="get">
+                <div class="col-5">
+                    <input placeholder="Search facility by name" name="searchName" type="text"
+                           th:value="${searchName}"/>
+                </div>
+                <div class="col-5">
+                    <select class="form-control" name="searchFacilityTypeName">
+                        <option value="">Facility Type Name</option>
+                        <option th:each="item: ${facilityTypeList}" th:value="${item.facilityTypeName}"
+                                th:text="${item.facilityTypeName}"
+                                th:selected="${searchFacilityTypeName == item.facilityTypeName}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-success">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </center>
 <table class="table table-success table-triper">
     <tr>
@@ -37,7 +57,7 @@
         <td>Facility Free</td>
         <td>Facility Type Name</td>
         <td>Rent Type Name</td>
-<!--        <td>Edit</td>-->
+        <td>Edit</td>
 <!--        <td>Delete</td>-->
     </tr>
     <tr th:each="facility, stt : ${facilityPage}">
@@ -53,9 +73,9 @@
         <td th:text="${facility.facilityFree}"></td>
         <td th:text="${facility.facilityType.facilityTypeName}"></td>
         <td th:text="${facility.rentType.rentTypeName}"></td>
-<!--        <td><a th:href="@{customer/edit/{id}(id=${customer.id})}">-->
-<!--            <button>Edit</button>-->
-<!--        </a></td>-->
+        <td><a th:href="@{facility/edit/{id}(id=${facility.id})}">
+            <button>Edit</button>
+        </a></td>
 <!--        <td><a th:href="@{customer/delete/{id}(id=${customer.id})}">-->
 <!--            <button>Delete</button>-->
 <!--        </a></td>-->

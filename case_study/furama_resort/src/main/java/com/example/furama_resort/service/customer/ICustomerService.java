@@ -10,7 +10,8 @@ import java.util.Optional;
 
 public interface ICustomerService {
 
-    Page<Customer> search(String searchName,String searchEmail,Pageable pageable);
+    Page<Customer> search(String searchName,String searchEmail,String searchCustomerTypeName,Pageable pageable);
+    Page<Customer> search1(String searchName,String searchEmail,Pageable pageable);
 
     void save(Customer customer);
 

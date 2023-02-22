@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/customer")
@@ -30,11 +31,19 @@ public class CustomerController {
     @GetMapping("")
     public String showList(Model model, @RequestParam(required = false, value = "searchName", defaultValue = "") String searchName,
                            @RequestParam(required = false, value = "searchEmail", defaultValue = "") String searchEmail,
+                           @RequestParam(required = false, value = "searchCustomerTypeName", defaultValue = "") String searchCustomerTypeName,
                            @PageableDefault(size = 5) Pageable pageable) {
-        model.addAttribute("customerPage", customerService.search(searchName, searchEmail, pageable));
+        Page<Customer> customerPage;
+        if(Objects.equals(searchCustomerTypeName, "")){
+            customerPage = customerService.search1(searchName,searchEmail,pageable);
+        }else {
+            customerPage = customerService.search(searchName, searchEmail,searchCustomerTypeName, pageable);
+        }
+        model.addAttribute("customerPage",customerPage);
         model.addAttribute("customerTypeList", customerTypeService.findAll());
         model.addAttribute("searchName", searchName);
         model.addAttribute("searchEmail", searchEmail);
+        model.addAttribute("searchCustomerTypeName", searchCustomerTypeName);
         return "/customer/list";
     }
 
@@ -60,7 +69,7 @@ public class CustomerController {
             Customer customer = new Customer();
             BeanUtils.copyProperties(customerDto, customer);
             customerService.save(customer);
-            redirectAttributes.addFlashAttribute("message", "Thêm mới khách hàng thành công");
+            redirectAttributes.addFlashAttribute("messCreate", "Thêm mới khách hàng thành công");
         } else {
             for (Map.Entry<String, String> error : messError.entrySet()) {
                 bindingResult.rejectValue(error.getKey(), error.getValue());
@@ -86,7 +95,7 @@ public class CustomerController {
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);
         customerService.save(customer);
-        redirectAttributes.addFlashAttribute("mess", "Chỉnh sửa thành công");
+        redirectAttributes.addFlashAttribute("messEdit", "Chỉnh sửa thành công");
         return "redirect:/customer";
     }
 

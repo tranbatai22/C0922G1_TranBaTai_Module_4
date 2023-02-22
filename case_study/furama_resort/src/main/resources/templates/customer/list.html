@@ -10,18 +10,47 @@
 <body>
 <head th:replace="/view/layout :: header"></head>
 <center>
-    <h2 th:text="${mess}"></h2>
-    <a th:href="@{/customer/create}">
-        <button class="btn btn-primary btn-outline-secondary btn-sm">
-            <span class="fa-solid fa-person-circle-plus text-light h5 my-auto me-1"></span>
-            <span class="text-light"> Thêm mới khách hàng</span>
-        </button>
-    </a>
-    <form th:action="@{/customer}" method="get">
-        <input placeholder="Search customer by name" name="searchName" type="text" th:value="${searchName}"/>
-        <input placeholder="Search customer by email" name="searchEmail" type="text" th:value="${searchEmail}"/>
-        <button class="btn btn-success">Search</button>
-    </form>
+    <h2 th:text="${messCreate}"></h2>
+    <h2 th:text="${messEdit}"></h2>
+    <div class="row">
+        <div class="col-3">
+            <a th:href="@{/customer/create}">
+                <button class="btn btn-primary btn-outline-secondary btn-sm">
+                    <span class="fa-solid fa-person-circle-plus text-light h5 my-auto me-1"></span>
+                    <span class="text-light">Thêm mới khách hàng</span>
+                </button>
+            </a>
+        </div>
+        <div class="col-9">
+            <form class="row" th:action="@{/customer}" method="get">
+                <div class="col-3">
+                    <input placeholder="Search customer by name" name="searchName" type="text"
+                           th:value="${searchName}"/>
+                </div>
+
+                <div class="col-3">
+                    <input placeholder="Search customer by email" name="searchEmail" type="text"
+                           th:value="${searchEmail}"/>
+                </div>
+
+                <div class="col-3 mb-1">
+                    <select class="form-control" name="searchCustomerTypeName">
+                        <option value="">Customer Type Name</option>
+                        <option th:each="item: ${customerTypeList}" th:value="${item.customerTypeName}"
+                                th:text="${item.customerTypeName}"
+                                th:selected="${searchCustomerTypeName == item.customerTypeName}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-success">Search</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
 </center>
 <table class="table table-success table-triper">
     <tr>
