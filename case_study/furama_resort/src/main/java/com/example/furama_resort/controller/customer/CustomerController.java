@@ -101,7 +101,6 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-
     @PostMapping(value = "/delete")
     public String deleteCustomer(@ModelAttribute("customer") CustomerDto customerDto, RedirectAttributes redirectAttributes) {
         Optional<Customer> customer = customerService.findById(customerDto.getId());
