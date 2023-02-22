@@ -92,4 +92,11 @@ public class FacilityController {
         return "redirect:/facility";
     }
 
+    @PostMapping("/delete")
+    public String deleteCustomer(@ModelAttribute("idDelete") int id, RedirectAttributes redirect) {
+        facilityService.delete(id);
+        redirect.addFlashAttribute("mess", "Xoá thành công!");
+        return "redirect:/facility";
+    }
+
 }

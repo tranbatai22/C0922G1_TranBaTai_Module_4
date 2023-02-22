@@ -101,18 +101,11 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    @PostMapping(value = "/delete")
-    public String deleteCustomer(@ModelAttribute("customer") CustomerDto customerDto, RedirectAttributes redirectAttributes) {
-        Optional<Customer> customer = customerService.findById(customerDto.getId());
-        customer.setDeleted(true);
-        boolean check = customerService.editCustomer(customer);
-        String mess;
-        if (check) {
-            mess = "Xóa thành công";
-        } else {
-            mess = "Đã xảy ra lỗi";
-        }
-        redirectAttributes.addFlashAttribute("mess", mess);
-        return "redirect:/customer/show-list";
+    @PostMapping("/delete")
+    public String deleteCustomer(@ModelAttribute("idDelete") int id, RedirectAttributes redirect) {
+        customerService.delete(id);
+        redirect.addFlashAttribute("mess", "Xoá thành công!");
+        return "redirect:/customer";
     }
+
 }
