@@ -1,4 +1,4 @@
-package com.example.furama_resort.controller.customer;
+package com.example.furama_resort.controller.facility;
 
 import com.example.furama_resort.dto.FacilityDto;
 import com.example.furama_resort.model.facility.Facility;

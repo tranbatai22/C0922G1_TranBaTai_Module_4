@@ -1,4 +1,4 @@
-package com.example.furama_resort.controller.customer;
+package com.example.furama_resort.controller.home;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

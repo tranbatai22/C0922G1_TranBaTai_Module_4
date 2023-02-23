@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -36,6 +37,11 @@ public class CustomerService implements ICustomerService {
     @Override
     public Optional<Customer> findById(int id) {
         return customerRepository.findById(id);
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
     }
 
     @Override
