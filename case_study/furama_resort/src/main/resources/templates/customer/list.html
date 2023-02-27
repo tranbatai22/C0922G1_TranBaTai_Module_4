@@ -64,8 +64,6 @@
 <!--        <td>Delete</td>-->
     </tr>
     <tr th:each="customer, stt : ${customerPage}">
-        <td th:text="${stt.count + customerPage.number*3}"></td>
-        <td th:text="${customer.name}"></td>
         <td th:text="${customer.customerType.customerTypeName}"></td>
         <td th:text="${customer.dateOfBirth}"></td>
 
