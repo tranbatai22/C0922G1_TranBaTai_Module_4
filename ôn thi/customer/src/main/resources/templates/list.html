@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<form th:action="/customer">
+    <input placeholder="nhập tên" type="text" name="searchName" th:value="${searchName}">
+    <input placeholder="nhập email" type="text" name="searchEmail" th:value="${searchEmail}">
+    <button>Search</button>
+</form>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Customer Type Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="customer, stt : ${customerPage}">
+        <td th:text="stt.count + customerPage.number*3"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.customerType.customerTypeName}"></td>
+        <td th:text="${customer.age}"></td>
+        <td th:if="${customer.gender==0}" th:text="Nữ"></td>
+        <td th:if="${customer.gender==1}" th:text="Nam"></td>
+        <td th:if="${customer.gender==2}" th:text="LGBT"></td>
+        <td th:text="${customer.phoneNumber}"></td>
+        <td th:text="${customer.email}"></td>
+    </tr>
+</table>
+<!--phân trang-->
+<center>
+    <div>
+        <a th:href="@{/customer(page=${customerPage.number - 1}, searchName = ${searchName})}"
+           th:if="${customerPage.hasPrevious()}">
+            <button><==</button>
+        </a>
+        <span th:text="${customerPage.number + 1}"></span>/<span th:text="${customerPage.totalPages}"></span>
+        <a th:href="@{/customer(page=${customerPage.number + 1}, searchName = ${searchName})}"
+           th:if="${customerPage.hasNext()}">
+            <button>==></button>
+        </a>
+    </div>
+</center>
 </body>
 </html>

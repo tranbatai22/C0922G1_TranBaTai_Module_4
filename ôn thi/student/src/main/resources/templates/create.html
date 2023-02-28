@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="mx-5 px-5 pt-3">
+    <h2 class="text-center fw-bold " style="color: #1e2125">THÊM MỚI HỌC SINH</h2>
+
+    <div class="d-flex justify-content-center">
+        <form class="w-50 border border-2 border-success p-3 rounded formCSS" th:action="@{/student/create}"
+              th:object="${studentDto}" method="post" novalidate="novalidate">
+
+            <div class="form-group">
+                <label for="name" class="h6">Tên học sinh:</label>
+                <div class="input-group">
+                    <input type="text" id="name" class="form-control" placeholder="Nhập tên học sinh.."
+                           th:field="*{name}"/>
+<!--                    <p class="form-control border-0 text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>-->
+                    <span class="input-group-text"><i class="fa-solid fa-person-circle-question"></i></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age" class="h6">Tuổi:</label>
+                <div class="input-group">
+                    <input type="number" id="age" class="form-control" placeholder="Nhập tuổi.."
+                           th:field="*{age}"/>
+                    <!--                    <p class="form-control border-0 text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>-->
+                    <span class="input-group-text"><i class="fa-solid fa-person-circle-question"></i></span>
+                </div>
+            </div>
+
+            <div class="mt-3 form-group">
+                <label class="h6">Giới tính:</label>
+                <div class="d-flex">
+
+                    <label class="d-block me-4">
+                        <input type="radio" th:field="*{gender}" th:value="0"/> Nam
+                        <i class="fa-solid fa-venus"></i>
+                    </label>
+
+                    <label class="d-block me-4">
+                        <input type="radio" th:field="*{gender}" th:value="1"/> Nữ
+                        <i class="fa-solid fa-mars"></i>
+                    </label>
+
+                    <label class="d-block">
+                        <input type="radio" th:field="*{gender}" th:value="2"/> LGBT
+                        <i class="fa-solid fa-heart"></i>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="mt-3 form-group">
+                <label class="h6" for="clazz">Lớp:</label>
+                <div class="input-group">
+                    <select id="clazz" class="form-select" th:field="*{clazz.clazzId}">
+                        <option th:each="clazz : ${clazzList}" th:value="${clazz.clazzId}"
+                                th:text="${clazz.clazzName}"></option>
+                    </select>
+                    <span class="input-group-text"><i class="fa-solid fa-ranking-star"></i></span>
+                </div>
+            </div>
+
+            <div class="mt-3 text-center">
+                <button class="btn btn-info btn-outline-success btn-sm border border-2 border-success text-dark">
+                    -- Save <i class="fa-solid fa-floppy-disk"></i> --
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>
